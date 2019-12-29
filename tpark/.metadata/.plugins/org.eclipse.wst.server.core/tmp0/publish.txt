@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Sun Dec 29 00:19:22 CST 2019
+org.eclipse.jst.jee.server\:tcc=D\:\\DevolperTools\\apache-tomcat-8.0.53\\apache-tomcat-8.0.53\\webapps\\tcc
+org.eclipse.jst.jee.server\:tpark=D\:\\DevolperTools\\apache-tomcat-8.0.53\\apache-tomcat-8.0.53\\webapps\\tpark
