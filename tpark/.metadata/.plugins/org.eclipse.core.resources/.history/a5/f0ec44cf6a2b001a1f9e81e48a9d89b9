@@ -14,19 +14,22 @@ import javax.servlet.http.HttpServletResponse;
 import com.biyeseng.db.DBManager;	
 	
 
-public class DelCheAction extends HttpServlet {	
+public class DelCfeiAction extends HttpServlet {	
 	
-	
-	public DelCheAction() {	
+	/**	
+	 * Constructor of the object.	
+	 */	
+	public DelCfeiAction() {	
 		super();	
 	}	
 	
+	
 	public void destroy() {	
-		super.destroy(); 
-			
+		super.destroy(); // Just puts "destroy" string in log	
+		// Put your code here	
 	}	
 	
-
+		
 	public void doGet(HttpServletRequest request, HttpServletResponse response)	
 			throws ServletException, IOException {	
 	
@@ -35,8 +38,8 @@ public class DelCheAction extends HttpServlet {
 		String id = request.getParameter("id");	
 	
 		DBManager dbm = new DBManager();	
-		//删除车辆
-		String sql = "delete from che where id="+id;	
+		//删除车费
+		String sql = "delete from cfei where id="+id;	
 	
 		Statement stat = null;	
 		Connection conn = null;	
@@ -46,7 +49,7 @@ public class DelCheAction extends HttpServlet {
 			stat.execute(sql);	
 		 	
 		} catch (SQLException e) {	
-				
+			// TODO Auto-generated catch block	
 			e.printStackTrace();	
 		} finally {	
 			try {	
@@ -55,18 +58,18 @@ public class DelCheAction extends HttpServlet {
 				if (conn != null)	
 					conn.close();	
 			} catch (SQLException e) {	
-					
+				// TODO Auto-generated catch block	
 				e.printStackTrace();	
 			}	
 		}	
-		response.sendRedirect("che/list.jsp");	
+		response.sendRedirect("cfei/list.jsp");	
 		out.flush();	
 		out.close();	
 	}	
 	
-
+	
 	public void init() throws ServletException {	
-			
+		// Put your code here	
 	}	
 	
 }	

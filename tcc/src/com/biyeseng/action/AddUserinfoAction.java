@@ -21,8 +21,7 @@ public class AddUserinfoAction extends HttpServlet {
 	
 	
 	public void destroy() {	
-		super.destroy(); // Just puts "destroy" string in log	
-		// Put your code here	
+		super.destroy(); 	
 	}	
 	
 	
@@ -49,7 +48,7 @@ public class AddUserinfoAction extends HttpServlet {
 			System.out.println(sql);	
 			stat.execute(sql);	
 		} catch (SQLException e) {	
-			// TODO Auto-generated catch block	
+			
 			e.printStackTrace();	
 		} finally {	
 			try {	
@@ -58,7 +57,7 @@ public class AddUserinfoAction extends HttpServlet {
 				if(conn!=null)	
 					conn.close();	
 			} catch (SQLException e) {	
-				// TODO Auto-generated catch block	
+				
 				e.printStackTrace();	
 			}	
 		}	
@@ -69,7 +68,7 @@ public class AddUserinfoAction extends HttpServlet {
 	
 
 	public void init() throws ServletException {	
-		// Put your code here	
+			
 	}	
 	
 }	

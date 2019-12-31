@@ -22,8 +22,7 @@ public class DelUserinfoAction extends HttpServlet {
 	
 
 	public void destroy() {	
-		super.destroy(); // Just puts "destroy" string in log	
-		// Put your code here	
+		super.destroy(); 	
 	}	
 	
 
@@ -66,7 +65,6 @@ public class DelUserinfoAction extends HttpServlet {
 	
 
 	public void init() throws ServletException {	
-		// Put your code here	
-	}	
+			}	
 	
 }	

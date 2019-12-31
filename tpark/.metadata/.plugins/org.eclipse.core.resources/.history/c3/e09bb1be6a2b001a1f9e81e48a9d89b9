@@ -2,6 +2,9 @@ package com.biyeseng.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,38 +12,32 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.biyeseng.db.DBManager;
-import java.sql.*;
 
 
-public class ModUserinfoAction extends HttpServlet {
+public class DelAdminAction extends HttpServlet {
 
 	
-	public ModUserinfoAction() {
+	public DelAdminAction() {
 		super();
 	}
 
-
+	
 	public void destroy() {
-		super.destroy(); 
+		super.destroy(); // Just puts "destroy" string in log
+		// Put your code here
 	}
 
-	
-	public void doPost(HttpServletRequest request, HttpServletResponse response)
+
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		String id = request.getParameter("id");
-		String name = request.getParameter("name");
-		String pwd = request.getParameter("pwd");
-		String age = request.getParameter("age");
-		String tel = request.getParameter("tel");
 
 		DBManager dbm = new DBManager();
-		//修改用户信息
-		String sql = "update userinfo set name='" + name + "',pwd='" + pwd
-				+ "',age='" + age + "',tel='" + tel + "' where id=" + id;
-		System.out.println(sql);
+		//删除管理员
+		String sql = "delete from admin where id="+id;
 
 		Statement stat = null;
 		Connection conn = null;
@@ -48,8 +45,9 @@ public class ModUserinfoAction extends HttpServlet {
 			conn = dbm.getConnection();
 			stat = conn.createStatement();
 			stat.execute(sql);
+		 
 		} catch (SQLException e) {
-			
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
@@ -58,25 +56,18 @@ public class ModUserinfoAction extends HttpServlet {
 				if (conn != null)
 					conn.close();
 			} catch (SQLException e) {
-				
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-
-		String type = request.getParameter("type");
-		if (type != null && type.length() > 0) {
-			out
-			.println("<script>alert('修改成功！');window.location.href='userinfo/myUserinfo.jsp'</script>");
-		} else {
-			response.sendRedirect("userinfo/list.jsp");
-		}
+		response.sendRedirect("admin/list.jsp");
 		out.flush();
 		out.close();
 	}
 
 	
 	public void init() throws ServletException {
-		
+		// Put your code here
 	}
 
 }

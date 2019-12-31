@@ -2,9 +2,6 @@ package com.biyeseng.action;
 	
 import java.io.IOException;	
 import java.io.PrintWriter;	
-import java.sql.Connection;	
-import java.sql.SQLException;	
-import java.sql.Statement;	
 	
 import javax.servlet.ServletException;	
 import javax.servlet.http.HttpServlet;	
@@ -12,61 +9,66 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;	
 	
 import com.biyeseng.db.DBManager;	
+import java.sql.*;	
 	
 
-public class DelCheAction extends HttpServlet {	
+public class ModCheweiAction extends HttpServlet {	
 	
-	
-	public DelCheAction() {	
+
+	public ModCheweiAction() {	
 		super();	
 	}	
 	
+
 	public void destroy() {	
-		super.destroy(); 
-			
+		super.destroy(); // Just puts "destroy" string in log	
+		// Put your code here	
 	}	
 	
 
-	public void doGet(HttpServletRequest request, HttpServletResponse response)	
+	public void doPost(HttpServletRequest request, HttpServletResponse response)	
 			throws ServletException, IOException {	
 	
 		response.setContentType("text/html");	
 		PrintWriter out = response.getWriter();	
 		String id = request.getParameter("id");	
-	
+		String hao=request.getParameter("hao");
+		String info=request.getParameter("info");
+		String qu=request.getParameter("qu");
+	 	
 		DBManager dbm = new DBManager();	
-		//删除车辆
-		String sql = "delete from che where id="+id;	
+		//修改车位
+		String sql = "update chewei set hao='"+hao+"',info='"+info+"',qu='"+qu+"' where id="+id;	
+		System.out.println(sql);	
 	
 		Statement stat = null;	
-		Connection conn = null;	
+		Connection conn=null;	
 		try {	
-			conn = dbm.getConnection();	
+			conn=dbm.getConnection();	
 			stat = conn.createStatement();	
 			stat.execute(sql);	
-		 	
 		} catch (SQLException e) {	
-				
+			// TODO Auto-generated catch block	
 			e.printStackTrace();	
 		} finally {	
 			try {	
-				if (stat != null)	
+				if(stat!=null)	
 					stat.close();	
-				if (conn != null)	
+				if(conn!=null)	
 					conn.close();	
 			} catch (SQLException e) {	
-					
+				// TODO Auto-generated catch block	
 				e.printStackTrace();	
 			}	
 		}	
-		response.sendRedirect("che/list.jsp");	
+		response.sendRedirect("chewei/list.jsp");	
 		out.flush();	
 		out.close();	
 	}	
 	
 
 	public void init() throws ServletException {	
-			
+		// Put your code here	
 	}	
 	
 }	

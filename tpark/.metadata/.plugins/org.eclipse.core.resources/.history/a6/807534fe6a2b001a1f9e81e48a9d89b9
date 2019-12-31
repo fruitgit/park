@@ -13,17 +13,17 @@ import javax.servlet.http.HttpServletResponse;
 	
 import com.biyeseng.db.DBManager;	
 	
-
-public class DelCheAction extends HttpServlet {	
+public class DelUserinfoAction extends HttpServlet {	
 	
 	
-	public DelCheAction() {	
+	public DelUserinfoAction() {	
 		super();	
 	}	
 	
+
 	public void destroy() {	
-		super.destroy(); 
-			
+		super.destroy(); // Just puts "destroy" string in log	
+		// Put your code here	
 	}	
 	
 
@@ -34,9 +34,9 @@ public class DelCheAction extends HttpServlet {
 		PrintWriter out = response.getWriter();	
 		String id = request.getParameter("id");	
 	
-		DBManager dbm = new DBManager();	
-		//删除车辆
-		String sql = "delete from che where id="+id;	
+		DBManager dbm = new DBManager();
+		//删除用户
+		String sql = "delete from userinfo where id="+id;	
 	
 		Statement stat = null;	
 		Connection conn = null;	
@@ -46,7 +46,7 @@ public class DelCheAction extends HttpServlet {
 			stat.execute(sql);	
 		 	
 		} catch (SQLException e) {	
-				
+			
 			e.printStackTrace();	
 		} finally {	
 			try {	
@@ -59,14 +59,14 @@ public class DelCheAction extends HttpServlet {
 				e.printStackTrace();	
 			}	
 		}	
-		response.sendRedirect("che/list.jsp");	
+		response.sendRedirect("userinfo/list.jsp");	
 		out.flush();	
 		out.close();	
 	}	
 	
 
 	public void init() throws ServletException {	
-			
+		// Put your code here	
 	}	
 	
 }	

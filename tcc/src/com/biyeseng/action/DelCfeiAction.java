@@ -16,17 +16,15 @@ import com.biyeseng.db.DBManager;
 
 public class DelCfeiAction extends HttpServlet {	
 	
-	/**	
-	 * Constructor of the object.	
-	 */	
+		
 	public DelCfeiAction() {	
 		super();	
 	}	
 	
 	
 	public void destroy() {	
-		super.destroy(); // Just puts "destroy" string in log	
-		// Put your code here	
+		super.destroy(); 	
+	
 	}	
 	
 		
@@ -49,7 +47,7 @@ public class DelCfeiAction extends HttpServlet {
 			stat.execute(sql);	
 		 	
 		} catch (SQLException e) {	
-			// TODO Auto-generated catch block	
+			
 			e.printStackTrace();	
 		} finally {	
 			try {	
@@ -58,7 +56,7 @@ public class DelCfeiAction extends HttpServlet {
 				if (conn != null)	
 					conn.close();	
 			} catch (SQLException e) {	
-				// TODO Auto-generated catch block	
+				
 				e.printStackTrace();	
 			}	
 		}	
@@ -69,7 +67,7 @@ public class DelCfeiAction extends HttpServlet {
 	
 	
 	public void init() throws ServletException {	
-		// Put your code here	
+		
 	}	
 	
 }	
