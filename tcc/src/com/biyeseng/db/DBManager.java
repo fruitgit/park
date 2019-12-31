@@ -12,12 +12,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
-/**
- * 鏁版嵁搴撶鐞嗙被
- * 
- * @author win7
- * 
- */
+
 public class DBManager {
 	public static final String DEFAULT_DRIVER_NAME = "com.mysql.jdbc.Driver";
 	public static final String DEFAULT_DB_URL = "jdbc:mysql://localhost:3306/tcc";
@@ -26,7 +21,7 @@ public class DBManager {
 
 	public static Properties prop = null;
 
-	// 鑾峰彇鏁版嵁杩炴帴
+
 	public Connection getConnection() {
 
 		Connection coon = null;
@@ -233,7 +228,7 @@ public class DBManager {
 			d1 = format.parse(dateStart);
 			d2 = format.parse(dateStop);
 
-			// 姣ms
+		
 			long diff = d2.getTime() - d1.getTime();
 
 			long diffSeconds = diff / 1000 % 60;

@@ -96,28 +96,28 @@
 
 								try {
 
-									int pageSize;//一页显示的记录数
-									int totalItem;//记录总数
-									int totalPage;//总页数
-									int curPage;//待显示页码
+									int pageSize;
+									int totalItem;
+									int totalPage;
+									int curPage;
 									String strPage;
 									int i;
-									pageSize = 5;//设置一页显示的记录数
-									strPage = request.getParameter("page");//获得待显示页码
+									pageSize = 5;
+									strPage = request.getParameter("page");
 									if (strPage == null) {
 										curPage = 1;
 									} else {
-										curPage = java.lang.Integer.parseInt(strPage);//将字符串转换成整形
+										curPage = java.lang.Integer.parseInt(strPage);
 									}
 									if (curPage < 1) {
 										curPage = 1;
 									}
-									rs.last();//获取记录总数
+									rs.last();
 									totalItem = rs.getRow();
 									totalPage = (totalItem + pageSize - 1) / pageSize;
 									if (curPage > totalPage)
-										curPage = totalPage;//调整待显示的页码
-									if (totalPage > 0) {//将记录指针到待显示页的第一条记录上
+										curPage = totalPage;
+									if (totalPage > 0) {
 										rs.absolute((curPage - 1) * pageSize + 1);
 									}
 									i = 0;

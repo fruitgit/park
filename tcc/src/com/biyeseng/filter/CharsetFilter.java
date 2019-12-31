@@ -10,16 +10,11 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
-/**
- * 字符集过滤器 处理乱码
- * @author biyeseng
- * @company www.biyeseng.cn
- *
- */
+
 public class CharsetFilter implements Filter {
 
 	public void init(FilterConfig arg0) throws ServletException {
-		// TODO Auto-generated method stub
+
 		
 	}
 
@@ -30,7 +25,7 @@ public class CharsetFilter implements Filter {
 	}
 
 	public void destroy() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
